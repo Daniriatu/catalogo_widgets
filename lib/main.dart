@@ -1,4 +1,6 @@
 import 'package:catalogo_widgets/config/theme/app_theme.dart';
+import 'package:catalogo_widgets/screen/buttons/buttons_screen.dart';
+import 'package:catalogo_widgets/screen/cards/cards_screen.dart';
 import 'package:catalogo_widgets/screen/domus/domus_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,10 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme(electusColor: 0).getTheme(),
-        home: const DomusScreen());
+        home: const DomusScreen(),
+        routes: {
+          "/buttons": (context) => const ButtonsScreen(),
+          "/cards": (context) => const CardsScreen(),
+        });
   }
 }

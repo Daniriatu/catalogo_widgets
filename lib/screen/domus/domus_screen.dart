@@ -1,5 +1,6 @@
 import 'package:catalogo_widgets/config/menu/menu_item.dart';
 import 'package:catalogo_widgets/config/theme/app_theme.dart';
+import 'package:catalogo_widgets/screen/buttons/buttons_screen.dart';
 import 'package:flutter/material.dart';
 
 class DomusScreen extends StatelessWidget {
@@ -53,7 +54,13 @@ class _PropriumListTile extends StatelessWidget {
         Icons.arrow_forward_ios_rounded,
         color: colorum.primary,
       ),
-      onTap: () {},
+      onTap: () {
+        // Navigator.of(context).push(MaterialPageRoute(
+        //   builder: (context) => const ButtonsScreen(),
+        // ));
+
+        Navigator.pushNamed(context, menuItem.link);
+      },
     );
   }
 }
