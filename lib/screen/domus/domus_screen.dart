@@ -1,9 +1,10 @@
 import 'package:catalogo_widgets/config/menu/menu_item.dart';
-import 'package:catalogo_widgets/config/theme/app_theme.dart';
-import 'package:catalogo_widgets/screen/buttons/buttons_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class DomusScreen extends StatelessWidget {
+  static const String nomen = "domus_screen";
+
   const DomusScreen({super.key});
 
   @override
@@ -55,11 +56,7 @@ class _PropriumListTile extends StatelessWidget {
         color: colorum.primary,
       ),
       onTap: () {
-        // Navigator.of(context).push(MaterialPageRoute(
-        //   builder: (context) => const ButtonsScreen(),
-        // ));
-
-        Navigator.pushNamed(context, menuItem.link);
+        context.push(menuItem.link);
       },
     );
   }
