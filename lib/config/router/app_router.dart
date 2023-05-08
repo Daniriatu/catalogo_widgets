@@ -1,4 +1,4 @@
-import 'package:catalogo_widgets/screen/screens.dart';
+import 'package:catalogo_widgets/presentation/screen/screens.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(initialLocation: "/", routes: [
@@ -21,5 +21,10 @@ final appRouter = GoRouter(initialLocation: "/", routes: [
     path: "/progress",
     name: ProgressScreen.nomen,
     builder: (context, state) => const ProgressScreen(),
+  ),
+  GoRoute(
+    path: "/numerator-river",
+    name: NumeratorScreen.nomen,
+    builder: (context, state) => const NumeratorScreen(),
   ),
 ]);
