@@ -15,10 +15,13 @@ const List<Color> colorum = [
 class AppTheme {
   final int electusColor;
 
-  AppTheme({this.electusColor = 0});
+  final bool tenebrisModusEst;
+
+  AppTheme({this.tenebrisModusEst = false, this.electusColor = 0});
 
   ThemeData getTheme() => ThemeData(
       useMaterial3: true,
+      brightness: tenebrisModusEst ? Brightness.dark : Brightness.light,
       colorSchemeSeed: colorum[electusColor],
       appBarTheme: const AppBarTheme(centerTitle: false));
 }

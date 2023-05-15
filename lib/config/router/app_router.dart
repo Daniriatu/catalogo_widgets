@@ -27,4 +27,9 @@ final appRouter = GoRouter(initialLocation: "/", routes: [
     name: NumeratorScreen.nomen,
     builder: (context, state) => const NumeratorScreen(),
   ),
+  GoRoute(
+    path: "/theme-mutante",
+    name: ThemeMutanteScreen.nomen,
+    builder: (context, state) => const ThemeMutanteScreen(),
+  ),
 ]);

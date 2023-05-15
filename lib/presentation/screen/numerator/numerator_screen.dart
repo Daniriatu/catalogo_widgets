@@ -1,4 +1,5 @@
 import 'package:catalogo_widgets/presentation/providers/numerator_provider.dart';
+import 'package:catalogo_widgets/presentation/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,9 +11,23 @@ class NumeratorScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final int clickNumerator = ref.watch(numeratorProvider);
+
+    final bool tenebrisModusEst = ref.watch(tenebrisModusProviderEst);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Numerator Screen'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                ref
+                    .read(tenebrisModusProviderEst.notifier)
+                    .update((stateTheme) => !stateTheme);
+              },
+              icon: Icon(tenebrisModusEst
+                  ? Icons.dark_mode_outlined
+                  : Icons.light_mode_outlined))
+        ],
       ),
       body: Center(
           child: Text("Valor: $clickNumerator",
