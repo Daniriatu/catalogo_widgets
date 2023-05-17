@@ -24,4 +24,8 @@ class AppTheme {
       brightness: tenebrisModusEst ? Brightness.dark : Brightness.light,
       colorSchemeSeed: colorum[electusColor],
       appBarTheme: const AppBarTheme(centerTitle: false));
+
+  AppTheme copyWith({int? electusColor, bool? tenebrisModusEst}) => AppTheme(
+      electusColor: electusColor ?? this.electusColor,
+      tenebrisModusEst: tenebrisModusEst ?? this.tenebrisModusEst);
 }

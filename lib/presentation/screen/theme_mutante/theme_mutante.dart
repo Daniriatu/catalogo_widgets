@@ -9,7 +9,8 @@ class ThemeMutanteScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool tenebrisModusEst = ref.watch(tenebrisModusProviderEst);
+    final bool tenebrisModusEst =
+        ref.watch(themeNotifierProvider).tenebrisModusEst;
 
     return Scaffold(
       appBar: AppBar(
@@ -17,9 +18,12 @@ class ThemeMutanteScreen extends ConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
+                // ref
+                //     .read(tenebrisModusProviderEst.notifier)
+                //     .update((state) => !state);
                 ref
-                    .read(tenebrisModusProviderEst.notifier)
-                    .update((state) => !state);
+                    .read(themeNotifierProvider.notifier)
+                    .tenebrisModusAlternere();
               },
               icon: Icon(tenebrisModusEst
                   ? Icons.dark_mode_outlined
@@ -38,7 +42,7 @@ class _ThemeMutareVisu extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     final List<Color> colorum = ref.watch(colorumIndexProvider);
 
-    final int electusColor = ref.watch(electusColorProvider);
+    final int electusColor = ref.watch(themeNotifierProvider).electusColor;
 
     return ListView.builder(
       itemCount: colorum.length,
@@ -54,7 +58,10 @@ class _ThemeMutareVisu extends ConsumerWidget {
             value: index,
             groupValue: electusColor,
             onChanged: (value) {
-              ref.read(electusColorProvider.notifier).state = index;
+              // ref.read(electusColorProvider.notifier).state = index;
+              ref
+                  .read(themeNotifierProvider.notifier)
+                  .mutareColorNumerus(index);
             });
       },
     );

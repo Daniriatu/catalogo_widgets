@@ -12,7 +12,8 @@ class NumeratorScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final int clickNumerator = ref.watch(numeratorProvider);
 
-    final bool tenebrisModusEst = ref.watch(tenebrisModusProviderEst);
+    final bool tenebrisModusEst =
+        ref.watch(themeNotifierProvider).tenebrisModusEst;
 
     return Scaffold(
       appBar: AppBar(
@@ -20,9 +21,12 @@ class NumeratorScreen extends ConsumerWidget {
         actions: [
           IconButton(
               onPressed: () {
+                // ref
+                //     .read(tenebrisModusProviderEst.notifier)
+                //     .update((stateTheme) => !stateTheme);
                 ref
-                    .read(tenebrisModusProviderEst.notifier)
-                    .update((stateTheme) => !stateTheme);
+                    .read(themeNotifierProvider.notifier)
+                    .tenebrisModusAlternere();
               },
               icon: Icon(tenebrisModusEst
                   ? Icons.dark_mode_outlined

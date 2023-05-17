@@ -13,15 +13,18 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final tenebrisModusEst = ref.watch(tenebrisModusProviderEst);
-    final electusColor = ref.watch(electusColorProvider);
+    // final tenebrisModusEst = ref.watch(tenebrisModusProviderEst);
+    // final electusColor = ref.watch(electusColorProvider);
+
+    final AppTheme appTheme = ref.watch(themeNotifierProvider);
 
     return MaterialApp.router(
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme(
-              electusColor: electusColor, tenebrisModusEst: tenebrisModusEst)
-          .getTheme(),
+      // theme: AppTheme(
+      //         electusColor: electusColor, tenebrisModusEst: tenebrisModusEst)
+      //     .getTheme(),
+      theme: appTheme.getTheme(),
     );
   }
 }
