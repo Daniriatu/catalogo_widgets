@@ -1,4 +1,5 @@
 import 'package:catalogo_widgets/presentation/screen/screens.dart';
+import 'package:catalogo_widgets/presentation/screen/theme_mutante/theme_mutante.dart';
 import 'package:go_router/go_router.dart';
 
 final appRouter = GoRouter(initialLocation: "/", routes: [
@@ -26,5 +27,35 @@ final appRouter = GoRouter(initialLocation: "/", routes: [
     path: "/numerator-river",
     name: NumeratorScreen.nomen,
     builder: (context, state) => const NumeratorScreen(),
+  ),
+  GoRoute(
+    path: "/animated",
+    name: AnimatumScreen.nomen,
+    builder: (context, state) => const AnimatumScreen(),
+  ),
+  GoRoute(
+    path: "/tutorial",
+    name: DoceboAppScreen.nomen,
+    builder: (context, state) => const DoceboAppScreen(),
+  ),
+  GoRoute(
+    path: "/infinite",
+    name: InfiniteScrollScreen.nomen,
+    builder: (context, state) => const InfiniteScrollScreen(),
+  ),
+  GoRoute(
+    path: "/snackbars",
+    name: SnackbarScreen.nomen,
+    builder: (context, state) => const SnackbarScreen(),
+  ),
+  GoRoute(
+    path: "/ui-controls",
+    name: UiControlsScreen.nomen,
+    builder: (context, state) => const UiControlsScreen(),
+  ),
+  GoRoute(
+    path: "/theme-mutante",
+    name: ThemeMutanteScreen.nomen,
+    builder: (context, state) => const ThemeMutanteScreen(),
   ),
 ]);
