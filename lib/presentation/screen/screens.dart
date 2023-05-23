@@ -1,3 +1,8 @@
+export 'package:catalogo_widgets/presentation/screen/animated/animatum_screen.dart';
+export 'package:catalogo_widgets/presentation/screen/docebo_app/docebo_app_screen.dart';
+export 'package:catalogo_widgets/presentation/screen/infinite_scroll/infinite_scroll_screen.dart';
+export 'package:catalogo_widgets/presentation/screen/snackbar/snackbar_screen.dart';
+export 'package:catalogo_widgets/presentation/screen/ui_controls/ui_controls_screen.dart';
 export 'package:catalogo_widgets/presentation/screen/numerator/numerator_screen.dart';
 export 'package:catalogo_widgets/presentation/screen/progress/progress_screen.dart';
 export 'package:catalogo_widgets/presentation/screen/domus/domus_screen.dart';
