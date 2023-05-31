@@ -1,4 +1,5 @@
 import 'package:catalogo_widgets/config/menu/menu_item.dart';
+import 'package:catalogo_widgets/presentation/widgets/lateralis_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,11 +10,17 @@ class DomusScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scaffoldKey = GlobalKey<ScaffoldState>();
+
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
         title: const Text('Flutter + Material13'),
       ),
       body: const _DomusView(),
+      drawer: LateralisMenu(
+        scaffoldKey: scaffoldKey,
+      ),
     );
   }
 }

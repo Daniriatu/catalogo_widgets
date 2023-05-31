@@ -65,6 +65,8 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     if (!factumEst) return;
 
     setState(() {});
+
+    movereScrollAdDescendit();
   }
 
   Future<void> cumRenovat() async {
@@ -89,12 +91,14 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
     setState(() {});
   }
 
-  // void movereScrollAdDescendit() {
-  //   if (scrollController.position.pixels + 100 <=
-  //       scrollController.position.maxScrollExtent) return;
+  void movereScrollAdDescendit() {
+    if (scrollController.position.pixels + 100 <=
+        scrollController.position.maxScrollExtent) return;
 
-  //   scrollController.animateTo(offset, duration: duration, curve: curve)
-  // }
+    scrollController.animateTo(scrollController.position.pixels + 120,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.fastOutSlowIn);
+  }
 
   @override
   Widget build(BuildContext context) {

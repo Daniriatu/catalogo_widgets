@@ -9,9 +9,105 @@ class UiControlsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("UiControls Container"),
+        title: const Text("Ui Controls"),
       ),
-      body: const Placeholder(),
+      body: _UIControlsVisum(),
+    );
+  }
+}
+
+class _UIControlsVisum extends StatefulWidget {
+  const _UIControlsVisum();
+
+  @override
+  State<_UIControlsVisum> createState() => _UIControlsVisumState();
+}
+
+enum Transportatio { coche, avion, barco, submario }
+
+class _UIControlsVisumState extends State<_UIControlsVisum> {
+  bool developerEst = true;
+
+  bool eamusAdPrandete = false;
+  bool eamusAdPrandium = false;
+  bool eamusAdCena = false;
+
+  Transportatio eligereTransportatio = Transportatio.coche;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      physics: const ClampingScrollPhysics(),
+      children: [
+        SwitchListTile(
+          value: developerEst,
+          title: const Text("Developer Mode"),
+          subtitle: const Text("Controles adicionales"),
+          onChanged: (value) => setState(() {
+            developerEst = !developerEst;
+          }),
+        ),
+        ExpansionTile(
+          title: const Text("Vehículo de transporte"),
+          subtitle: Text("$eligereTransportatio"),
+          children: [
+            RadioListTile(
+              title: const Text("Coche"),
+              subtitle: const Text("Viajar en coche"),
+              value: Transportatio.coche,
+              groupValue: eligereTransportatio,
+              onChanged: (value) => setState(() {
+                eligereTransportatio = Transportatio.coche;
+              }),
+            ),
+            RadioListTile(
+              title: const Text("Avión"),
+              subtitle: const Text("Viajar en avión"),
+              value: Transportatio.avion,
+              groupValue: eligereTransportatio,
+              onChanged: (value) => setState(() {
+                eligereTransportatio = Transportatio.avion;
+              }),
+            ),
+            RadioListTile(
+              title: const Text("Barco"),
+              subtitle: const Text("Viajar en barco"),
+              value: Transportatio.barco,
+              groupValue: eligereTransportatio,
+              onChanged: (value) => setState(() {
+                eligereTransportatio = Transportatio.barco;
+              }),
+            ),
+            RadioListTile(
+              title: const Text("Submarino"),
+              subtitle: const Text("Viajar en submarino"),
+              value: Transportatio.submario,
+              groupValue: eligereTransportatio,
+              onChanged: (value) => setState(() {
+                eligereTransportatio = Transportatio.submario;
+              }),
+            ),
+          ],
+        ),
+        CheckboxListTile(
+            title: const Text("¿Desayuno?"),
+            value: eamusAdPrandete,
+            onChanged: (value) => setState(() {
+                  eamusAdPrandete = !eamusAdPrandete;
+                })),
+        CheckboxListTile(
+            title: const Text("¿Comida?"),
+            value: eamusAdPrandium,
+            onChanged: (value) => setState(() {
+                  eamusAdPrandium = !eamusAdPrandium;
+                })),
+        CheckboxListTile(
+            title: const Text("¿Cena?"),
+            value: eamusAdCena,
+            onChanged: (value) => setState(() {
+                  eamusAdCena = !eamusAdCena;
+                })),
+      ],
     );
   }
 }
